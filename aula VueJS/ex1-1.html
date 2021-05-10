@@ -1,0 +1,27 @@
+<meta charset="utf-8" />
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <h1>{{ titulo }}</h1>
+    <input type="text" v-model="v1" />
+    <input type="text" v-model="v2" />
+    <p>{{ resultado }}</p>
+    <button v-on:click="calcular">calcular</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Minha segunda tela em VueJS',
+            v1: 0,
+            v2: 0,
+            resultado: 0
+        },
+        methods: {
+            calcular() {
+                this.resultado = parseInt(this.v1) + parseInt(this.v2);
+            }
+        }
+    });
+</script>

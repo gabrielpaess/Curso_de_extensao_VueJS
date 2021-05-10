@@ -1,0 +1,16 @@
+<meta charset="utf-8" />
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <h1>{{ titulo }}</h1>
+    <button v-on:click="titulo = 'Meu segundo título'">Altera o título</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Minha primeira tela em vueJS'
+        }
+    });
+</script>

@@ -1,0 +1,49 @@
+<meta charset="utf-8" />
+<script src="https://unpkg.com/vue"></script>
+
+<style type="text/css">
+.c1 {
+    background-color: red;
+    background-image: url(imagens/mustang.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 0.6;
+}
+div {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #333;
+    margin: 5px;
+}
+#app {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    width: 100%;
+    justify-content: space-around;
+}
+.quadro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>
+
+<div id="app">
+    <div class="quadro" :class='{c1: (pinta==1)}'>aaa</div>
+    <div class="quadro" :class='{c1: preenche}' @click='preenche = !preenche'>bbb</div>
+    <div class="quadro" :style="{'background-color': cor}">ccc</div>
+    <div class="quadro">ddd</div>
+    <a href="site">Kalili</a>
+
+    <input type="checkbox" value='1' v-model='pinta' /> Pinta
+
+    <button @click="cor = '#040'">Verde</button>
+    <button @click="cor = '#400'">Vermelho</button>
+    <button @click="cor = '#004'">Azul</button>
+
+
+</div>
+
+<script src="app08.js"></script>

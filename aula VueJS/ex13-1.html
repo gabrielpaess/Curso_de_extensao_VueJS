@@ -1,0 +1,31 @@
+<meta charset="utf-8" />
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+<p :style="meuEstilo()">Olaaaaa</p>
+<button @click="mudaCor">Muda Cor</button>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            cor:'#fff'
+        },
+        methods: {
+            meuEstilo() {
+                return {
+                    'background-color': '#800',
+                    'color': this.cor
+                }
+            },
+            mudaCor() {
+                this.cor = "#ff0"
+            }
+        }
+    })
+</script>
+
+<style>
+
+</style>

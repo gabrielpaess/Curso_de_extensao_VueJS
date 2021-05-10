@@ -1,0 +1,28 @@
+<meta charset="utf-8" />
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <h1 v-bind:style="{'text-align': alinhamento}">{{ titulo }}</h1>
+    <img v-bind:src="imagem" alt="" />
+    <button v-on:mouseover='alinhamento = "left"'>Left</button>
+    <button v-on:mouseover='alinhamento = "center"'>Center</button>
+    <button v-on:mouseover='alinhamento = "right"'>Right</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Meu primeiro título...',
+            imagem: 'imagens/mustang.jpg',
+            alinhamento: 'right'
+        }
+    });
+</script>
+
+//pode ser utilizado mouseover no button quando quisermos  apenas passar o mouse no botão, ou click quando quisermos clicar em um botão e realizar a ação que está relacionada a ele.//
+
+//v-on ou @ é para quando quisermos deixar reservado um evento para aquele botão, após o click ou double click.//
+
+//v-bind ou : é para transformar atributo estático em dinâmico.//
+

@@ -1,0 +1,81 @@
+<meta charset="utf-8" />
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <ul>
+        <li v-for="(xx,i) in pessoas" :key="i" v-if="i>0">
+            <div class="box" 
+            :class="xx.status ? 'ativo' : 'inativo'"
+            @click="mudaStatus(i)">
+                <p>
+                    {{ xx.nome }} <br />
+                    Status: {{ xx.status ? "ATIVO" : "INATIVO" }}
+                </p>
+            </div>
+        </li>
+        <li v-else>X {{ xx.nome }} foi excluida...</li>
+    </ul>
+
+</div>
+
+<script>
+new Vue({
+    el: "#app",
+    data: {
+        pessoas: [
+            {
+                nome: "João da Silva",
+                status: false
+            },
+            {
+                nome: "Pedro Alcantara",
+                status: true
+            },
+            {
+                nome: "Maria Bitencourt",
+                status: false
+            },
+            {
+                nome: "Ana Paula Padrão",
+                status: true
+            },
+            {
+                nome: "Gabriel",
+                status: true
+            },
+        ]
+    },
+    methods: {
+        mudaStatus(i) {
+            this.pessoas[i].status = !this.pessoas[i].status
+        }
+    }
+})
+</script>
+
+<style>
+    #app {
+
+    }
+
+    .box {
+        border: 1px solid #333;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 15px;
+        width: 150px;
+        text-align: center;
+    }
+    ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        flex-wrap: wrap;
+    }
+.ativo {
+    background: #acf;
+}
+.inativo {
+ background: #faa;
+}
+</style>

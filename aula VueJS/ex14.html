@@ -1,0 +1,71 @@
+<meta charset="utf-8" />
+<script src="https://unpkg.com/vue"></script>
+<link href="ex14.css" rel="stylesheet" />
+
+<div id="app">
+    <div id="boxPerc">
+        <div id="boxBarra">
+            <div id="boxProg" :style="{'width':progresso+'%'}"></div>
+        <p>{{ progresso.toFixed(2) }}%</p>
+        
+    </div>
+</div>
+
+    <hr />
+    <div id="caixas">
+        <div class="cxPessoa" 
+        v-for="(meliante,i) in pessoas"
+        :key="i"
+        :class="meliante.ativo ? 'ativo' : 'inativo'"
+        @click="mudaStatus(meliante)">
+            <h3>{{ meliante.nome }}</h3>
+            <h5>{{ meliante.cargo }}</h5>
+        </div>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            pessoas: [
+                {
+                    nome: "João da Silva", cargo:'Supervisor', ativo: true
+                },
+                {
+                    nome: "gab",
+                    cargo: 'chefe', ativo: true
+                },
+                {
+                    nome: "ba",
+                    cargo: 'funcionario', ativo: true
+                },
+                {
+                    nome: "rafa",
+                    cargo: 'cliente', ativo: true
+                },
+                {
+                    nome: "ena",
+                    cargo: 'sac', ativo: true
+                },
+                {
+                    nome: "luis",
+                    cargo: 'serviçal', ativo: true
+                }
+            ]
+        },
+methods: {
+    mudaStatus(x) {
+        x.ativo = !x.ativo
+    }
+},
+computed: {
+    progresso () {
+        //quantos tenho marcado
+        let marcados = this.pessoas.filter(mk => mk.ativo).length;
+        return marcados / this.pessoas. length * 100;
+    }
+}
+    }
+})
+    </script>

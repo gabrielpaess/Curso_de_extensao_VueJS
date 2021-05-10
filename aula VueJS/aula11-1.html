@@ -1,0 +1,32 @@
+<meta charset="utf-8" />
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <ul>
+        <li v-for="(pessoa,i) in pessoas">
+            <p v-if="i < 2">{{i+1}} - {{ pessoa }}</p>
+            <p v-else style="background:chartreuse">{{i+1}} - CENSURADO</p>
+        </li>
+
+    </ul>
+    <hr />
+    <ul>
+        <li v-for="(pessoa, i) in pessoas" v-show='i < 2'>
+            <p>{{ i+1 }} - {{ pessoa }}</p>
+
+        </li>
+    </ul>
+</div>
+
+<script>
+    new Vue({
+         el: "#app",
+    data: {
+        pessoas: ["Ana", "Pedro", "João", "Carlota"]
+        }
+    })
+</script>
+
+<style>
+
+</style>
